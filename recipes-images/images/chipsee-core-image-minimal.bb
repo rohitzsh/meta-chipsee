@@ -3,19 +3,30 @@ DESCRIPTION = "Custom image for chipsee devices"
 
 LICENSE = "MIT"
 
-IMAGE_INSTALL = "packagegroup-core-boot ${CORE_IMAGE_EXTRA_INSTALL}"
+IMAGE_INSTALL = "packagegroup-core-boot \
+        packagegroup-core-ssh-openssh \
+        packagegroup-self-hosted \
+        packagegroup-core-boot \
+        ${CORE_IMAGE_EXTRA_INSTALL}"
 
 inherit core-image
 
 IMAGE_BASENAME = "chipsee"
 MACHINE_NAME ?= "${MACHINE}"
 IMAGE_NAME = "${IMAGE_BASENAME}_${MACHINE_NAME}"
+IMAGE_FEATURES += "x11-base package-management splash"
+
+QB_MEM = '${@bb.utils.contains("DISTRO_FEATURES", "opengl", "-m 512", "-m 256", d)}'
 
 IMAGE_ROOTFS_SIZE ?= "8192"
 IMAGE_ROOTFS_EXTRA_SPACE_append = "${@bb.utils.contains("DISTRO_FEATURES", "systemd", " + 4096", "" ,d)}"
-IMAGE_INSTALL_append = " udev-extra-rules "
+IMAGE_INSTALL_append = "\
+         udev-extra-rules"
 
 IMAGE_LINGUAS = "en-us"
+
+# Do a quiet boot with limited console messages
+APPEND += "rootfstype=ext4 quiet"
 
 IMAGE_DEV_MANAGER   = "udev"
 IMAGE_INIT_MANAGER  = "systemd"
@@ -31,4 +42,4 @@ USER_GID = "1000"
 
 EXTRA_USERS_PARAMS = "\
         groupadd --gid ${USER_GID} ${USER}; \
-        useradd  --uid ${USER_ID} --gid ${USER_GID} --shell /bin/bash --system ${USER}; "
+        useradd  -P password123 --uid ${USER_ID} --gid ${USER_GID} --shell /bin/bash --system ${USER}; "
