@@ -42,4 +42,11 @@ USER_GID = "1000"
 
 EXTRA_USERS_PARAMS = "\
         groupadd --gid ${USER_GID} ${USER}; \
-        useradd  -P password123 --uid ${USER_ID} --gid ${USER_GID} --shell /bin/bash --system ${USER}; "
+        useradd \
+         --password '$6$zYfF6j3d1fp3uwHd$KnuYPw/hSsOdh7DPdan1pM4.ZLMohXJDVN.EhdZlcbNOOXw1HbdlH0nL2gbSc2x2I/YubPvZ8sSM7pm3C/.5U.' \
+         --uid ${USER_ID} \
+         --gid ${USER_GID} \
+         --shell /bin/bash \
+         --create-home \
+         --system \
+         ${USER}; "
