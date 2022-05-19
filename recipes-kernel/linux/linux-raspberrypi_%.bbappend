@@ -4,4 +4,3 @@ SRC_URI += "file://pwm-backlight-overlay.dts;subdir=git/arch/${ARCH}/boot/dts"
 SRC_URI += "file://seeed-2mic-voicecard-overlay.dts;subdir=git/arch/${ARCH}/boot/dts"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
-

@@ -4,7 +4,7 @@ SECTION = "kernel/modules"
 PRIORITY = "optional"
 LICENSE = "CLOSED"
 
-SRCREV = "bd772377bc65590115028bf49ddd3278c87e261d"
+SRCREV = "29ced96adb06065953ff71d1fd101ad2c41f43cb"
 SRC_URI = "git://github.com/rohitzsh/chipsee-driver-lsm6ds3.git;branch=master;protocol=https"
 
 S="${WORKDIR}/git"

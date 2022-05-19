@@ -12,8 +12,7 @@ IMAGE_INSTALL = "packagegroup-core-boot \
 inherit core-image
 
 IMAGE_BASENAME = "chipsee"
-MACHINE_NAME ?= "${MACHINE}"
-IMAGE_NAME = "${IMAGE_BASENAME}_${MACHINE_NAME}"
+IMAGE_NAME = "${IMAGE_BASENAME}_${MACHINE}"
 IMAGE_FEATURES += "x11-base package-management splash"
 
 QB_MEM = '${@bb.utils.contains("DISTRO_FEATURES", "opengl", "-m 512", "-m 256", d)}'
@@ -24,15 +23,6 @@ IMAGE_INSTALL_append = "\
          udev-extra-rules"
 
 IMAGE_LINGUAS = "en-us"
-
-# Do a quiet boot with limited console messages
-APPEND += "rootfstype=ext4 quiet"
-
-IMAGE_DEV_MANAGER   = "udev"
-IMAGE_INIT_MANAGER  = "systemd"
-IMAGE_INITSCRIPTS   = " "
-IMAGE_LOGIN_MANAGER = "busybox shadow"
-
 SYSTEMD_DEFAULT_TARGET = "multi-user.target"
 
 inherit extrausers
