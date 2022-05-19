@@ -4,7 +4,7 @@ SECTION = "kernel/modules"
 PRIORITY = "optional"
 LICENSE = "CLOSED"
 
-SRCREV = "de1a87832bc700aeaade186d4692a7e57eb02b62"
+SRCREV = "7177e9d6ca4cfec3c609324e699fe54b1e0079dd"
 SRC_URI = "git://github.com/rohitzsh/chipsee-driver-lcd.git;branch=master;protocol=https"
 
 S="${WORKDIR}/git"

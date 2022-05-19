@@ -4,7 +4,7 @@ SECTION = "kernel/modules"
 PRIORITY = "optional"
 LICENSE = "CLOSED"
 
-SRCREV = "a679ad35182f865858c163dccdfc064253c9976f"
+SRCREV = "0e239e93cb436da772ba9bf1f018f65cdd56d674"
 SRC_URI = "git://github.com/rohitzsh/chipsee-driver-pwmbl.git;branch=master;protocol=https"
 
 S="${WORKDIR}/git"

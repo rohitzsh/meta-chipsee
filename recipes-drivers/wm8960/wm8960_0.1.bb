@@ -4,7 +4,7 @@ SECTION = "kernel/modules"
 PRIORITY = "optional"
 LICENSE = "CLOSED"
 
-SRCREV = "358ec319eca5f0447e9b9ad0d84553d3f92ed1f1"
+SRCREV = "2471bf537ca67b2148b95e0f6b3eede76a6275b7"
 SRC_URI = "git://github.com/rohitzsh/chipsee-driver-wm8960.git;branch=master;protocol=https"
 
 S="${WORKDIR}/git"
