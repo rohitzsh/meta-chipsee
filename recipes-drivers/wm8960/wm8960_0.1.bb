@@ -23,3 +23,5 @@ do_install() {
 }
 
 RPROVIDES_${PN} += "kernel-module-sound"
+
+KERNEL_MODULE_AUTOLOAD += "wm8960"

@@ -23,3 +23,5 @@ do_install() {
 }
 
 RPROVIDES_${PN} += "kernel-module-cs_lcd"
+
+KERNEL_MODULE_AUTOLOAD += "cs_lcd"

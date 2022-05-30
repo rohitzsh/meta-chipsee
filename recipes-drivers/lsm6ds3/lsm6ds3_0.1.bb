@@ -23,3 +23,5 @@ do_install() {
 }
 
 RPROVIDES_${PN} += "kernel-module-lsm6ds3"
+
+KERNEL_MODULE_AUTOLOAD += "lsm6ds3"

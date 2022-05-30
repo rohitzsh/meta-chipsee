@@ -23,3 +23,5 @@ do_install() {
 }
 
 RPROVIDES_${PN} += "kernel-module-backlight"
+
+KERNEL_MODULE_AUTOLOAD += "pwm_bl"

@@ -7,7 +7,10 @@ IMAGE_INSTALL = "packagegroup-core-boot \
         packagegroup-core-ssh-openssh \
         packagegroup-self-hosted \
         packagegroup-core-boot \
-        ${CORE_IMAGE_EXTRA_INSTALL}"
+        ${CORE_IMAGE_EXTRA_INSTALL} \
+        udev-extra-rules \
+        networkmanager \
+        vim"
 
 inherit core-image
 
@@ -19,8 +22,6 @@ QB_MEM = '${@bb.utils.contains("DISTRO_FEATURES", "opengl", "-m 512", "-m 256", 
 
 IMAGE_ROOTFS_SIZE ?= "8192"
 IMAGE_ROOTFS_EXTRA_SPACE_append = "${@bb.utils.contains("DISTRO_FEATURES", "systemd", " + 4096", "" ,d)}"
-IMAGE_INSTALL_append = "\
-         udev-extra-rules"
 
 IMAGE_LINGUAS = "en-us"
 SYSTEMD_DEFAULT_TARGET = "multi-user.target"
@@ -33,7 +34,7 @@ USER_GID = "1000"
 EXTRA_USERS_PARAMS = "\
         groupadd --gid ${USER_GID} ${USER}; \
         useradd \
-         --password '$6$zYfF6j3d1fp3uwHd$KnuYPw/hSsOdh7DPdan1pM4.ZLMohXJDVN.EhdZlcbNOOXw1HbdlH0nL2gbSc2x2I/YubPvZ8sSM7pm3C/.5U.' \
+         --password '$6$bAEDhG1yMfKjdEfQ$zT1TMnVYeXBSFW5FJ2911nr3dlKZ3uqZ3HqB/nbH9qQ5fy0QWsmQ2nVQ4BqiiV3MNEM07qfjp8Qz0iXmahXKP0' \
          --uid ${USER_ID} \
          --gid ${USER_GID} \
          --shell /bin/bash \

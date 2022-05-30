@@ -23,3 +23,5 @@ do_install() {
 }
 
 RPROVIDES_${PN} += "kernel-module-touchscreen"
+
+KERNEL_MODULE_AUTOLOAD += "gt9xx"
